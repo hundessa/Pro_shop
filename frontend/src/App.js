@@ -1,7 +1,9 @@
-import { Container } from "react-bootstrap";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+// import { Container } from "react-bootstrap";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import HomeScreen from "./components/screens/HomeScreen";
+import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
 
 
 const App = () => {
@@ -9,9 +11,10 @@ const App = () => {
     <>
     <Header />
     <main className="py-3">
-      <Container>
-    <HomeScreen/>
-      </Container>
+        <Routes>
+        <Route index={true} path="/" element={<HomeScreen/>}/>
+        <Route path='/product/:id' element={<ProductScreen/>}/>
+        </Routes>
     </main>
     <Footer />
     </>
